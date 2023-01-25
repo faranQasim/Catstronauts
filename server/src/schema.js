@@ -4,6 +4,7 @@ const typeDefs = gql`
 
     type Query {
         tracksForHome: [Track!]!
+        track(id: ID!): Track
     }
     
     "a track contains modules that teach a specific concept"
@@ -17,12 +18,21 @@ const typeDefs = gql`
         length: Int
         modulesCount: Int
         author: Author!
+        modules: [Module!]!
+        numberOfViews: Int
+        description: String
     }
     
     type Author {
         id: ID!
         name: String!
         photo: String
+    }
+    
+    type Module {
+        id: ID!
+        title: String!
+        length: Int
     }
 `;
 
